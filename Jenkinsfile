@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'
-        jdk 'JDK'
-    }
+    maven 'M2_HOME'
+    jdk 'JAVA_HOMEs'
+}
 
     stages {
         stage('Git Checkout') {
