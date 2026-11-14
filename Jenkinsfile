@@ -1,4 +1,5 @@
-def registry = 'https://trialn3tztq.jfrog.io/'
+
+def registry = 'https://trialn3tztq.jfrog.io'
 
 pipeline {
     agent any
@@ -12,9 +13,7 @@ pipeline {
         stage('build') {
             steps {
                 echo "---------- build started ----------"
-
                 sh "mvn clean deploy -DskipTests"
-
                 echo "---------- build completed ----------"
             }
         }
@@ -22,9 +21,7 @@ pipeline {
         stage('test') {
             steps {
                 echo "---------- unit test started ----------"
-
                 sh "mvn surefire-report:report"
-
                 echo "---------- unit test completed ----------"
             }
         }
@@ -48,7 +45,7 @@ pipeline {
 
                     def server = Artifactory.newServer(
                         url: registry + "/artifactory",
-i                        credentialsId: "artifact-cred"
+                        credentialsId: "artifact-cred"
                     )
 
                     def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}"
@@ -77,3 +74,4 @@ i                        credentialsId: "artifact-cred"
         }
     }
 }
+
