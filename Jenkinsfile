@@ -46,9 +46,9 @@ pipeline {
                 script {
                     echo "---------- Jar Publish Started ----------"
 
-                    def server = Artifactory.server(
+                    def server = Artifactory.newServer(
                         url: registry + "/artifactory",
-                        credentialsId: "artifact-cred"
+i                        credentialsId: "artifact-cred"
                     )
 
                     def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}"
