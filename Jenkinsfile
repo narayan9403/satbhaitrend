@@ -54,7 +54,7 @@ pipeline {
                     def uploadSpec = """{
                         "files": [
                             {
-                                "pattern": "jarstagging/(*)",
+                                "pattern": "jarstaging/(*)",
                                 "target": "sai-libs-release-local/{1}/",
                                 "flat": "false",
                                 "props": "${properties}",
