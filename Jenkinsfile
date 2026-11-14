@@ -42,6 +42,7 @@ pipeline {
             steps {
                 script {
                     echo "---------- Jar Publish Started ----------"
+		    sh 'find . -type f -name "*.jar" -print'
 
                     def server = Artifactory.newServer(
                         url: registry + "/artifactory",
